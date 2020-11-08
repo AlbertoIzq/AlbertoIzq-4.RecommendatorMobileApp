@@ -17,49 +17,49 @@ Builder.load_file('kivy/places.kv')
 Builder.load_file('kivy/other.kv')
 
 class LoginScreen(Screen):
-    pass
+	pass
 
 class SignUpScreen(Screen):
-    pass
+	pass
 
 class SignUpScreenSuccess(Screen):
-    pass
+	pass
 
 class ForgetPassScreen(Screen):
-    pass
+	pass
 
 class ForgetPassScreenSuccess(Screen):
-    pass
+	pass
 
 
 class Main(Screen):
-    pass
+	pass
 
 class Music(Screen):
-    pass
+	pass
 
 class Movies(Screen):
-    pass
+	pass
 
 class Series(Screen):
-    pass
+	pass
 
 class Books(Screen):
-    pass
+	pass
 
 class Places(Screen):
-    pass
+	pass
 
 class Other(Screen):
-    pass
+	pass
 
 
 class RootWidget(ScreenManager):
-    pass
+	pass
 
 class MainApp(App):
-    def build(self):
-        return RootWidget()
+	def build(self):
+		return RootWidget()
 
 if __name__ == '__main__':
-    MainApp().run()
+	MainApp().run()

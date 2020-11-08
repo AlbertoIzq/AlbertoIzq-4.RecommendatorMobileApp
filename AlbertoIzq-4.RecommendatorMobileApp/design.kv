@@ -1,23 +1,25 @@
-<LoginScreen>:
-	GridLayout:
-		cols: 1
-		GridLayout:
-			cols: 1
-			Label:
-				text: "user login"
-			TextInput:
-				hint_text: "Username"
-			TextInput:
-				hint_text: "Password"
-			Label:
-				text: ""
-		GridLayout:
-			cols: 2
-			Button:
-				text: "Forgot Password"
-			Button:
-				text: "Sign Up"
-
 <RootWidget>:
 	LoginScreen:
 		name: "login_screen"
+	SignUpScreen:
+		name: "sign_up_screen"
+    SignUpScreenSuccess:
+		name: "sign_up_screen_success"
+    ForgetPassScreen:
+		name: "forget_pass_screen"
+    ForgetPassScreenSuccess:
+		name: "forget_pass_screen_success"
+    Main:
+		name: "main_screen"
+    Music:
+		name: "music_screen"
+    Movies:
+		name: "movies_screen"
+    Series:
+		name: "series_screen"
+    Books:
+		name: "books_screen"
+    Places:
+		name: "places_screen"
+    Other:
+		name: "other_screen"

@@ -39,6 +39,21 @@
     <Content Include="design.kv">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="kivy\books.kv" />
+    <Content Include="kivy\places.kv" />
+    <Content Include="kivy\sign_up.kv" />
+    <Content Include="kivy\sign_up_success.kv" />
+    <Content Include="kivy\forget_pass.kv" />
+    <Content Include="kivy\forget_pass_success.kv" />
+    <Content Include="kivy\main.kv" />
+    <Content Include="kivy\music.kv" />
+    <Content Include="kivy\movies.kv" />
+    <Content Include="kivy\series.kv" />
+    <Content Include="kivy\other.kv" />
+    <Content Include="kivy\login.kv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="kivy\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -1,0 +1,24 @@
+<LoginScreen>:
+## Invisible widget, a way to separate the area
+## 1 column only by default
+	GridLayout:
+		GridLayout:
+			Label:
+				text: "User Login"
+			TextInput:
+				hint_text: "Username"
+			TextInput:
+				hint_text: "Password"
+			Button:
+				text: "Login"
+		GridLayout:
+			cols: 2
+			Button:
+				text: "Forgot Password"
+			Button:
+				text: "Sign Up"
+
+## Invisible widget that keeps record of all the screens of the app
+<RootWidget>:
+	LoginScreen:
+		name: "login_screen"

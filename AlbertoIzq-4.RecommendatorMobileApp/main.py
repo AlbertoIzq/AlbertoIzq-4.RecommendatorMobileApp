@@ -60,10 +60,10 @@ class SignUpScreen(Screen):
 			if letter.isdigit():
 				has_number = True
 
-		if len_ok and has_capital_letter and has_number:
-			with open("users.json") as file:
-				users = json.load(file)
+		with open("users.json") as file:
+			users = json.load(file)
 
+		if len_ok and has_capital_letter and has_number and not (uname in users):
 			users[uname] = {'username' : uname, 'password' : pword,
 							'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S"),
 							'favourite_word' : fword}
@@ -75,6 +75,8 @@ class SignUpScreen(Screen):
 			self.setMessage()
 			self.resetInputs()
 			self.manager.current = "sign_up_screen_success"
+		elif (uname in users):
+			self.setMessage("Username already exists!")
 		else:
 			self.setMessage("Invalid Password!")
 
@@ -84,6 +86,7 @@ class SignUpScreen(Screen):
 	def resetInputs(self):
 		self.ids.username.text = ""
 		self.ids.password.text = ""
+		self.ids.fav_word.text = ""
 
 class SignUpScreenSuccess(Screen):
 	def goToLogin(self):
@@ -126,29 +129,19 @@ class Music(Screen):
 		self.manager.current = "main_screen"
 
 class Movies(Screen):
-	def goToMain(self):
-		self.manager.transition.direction = 'right'
-		self.manager.current = "main_screen"
+	pass
 
 class Series(Screen):
-	def goToMain(self):
-		self.manager.transition.direction = 'right'
-		self.manager.current = "main_screen"
+	pass
 
 class Books(Screen):
-	def goToMain(self):
-		self.manager.transition.direction = 'right'
-		self.manager.current = "main_screen"
+	pass
 
 class Places(Screen):
-	def goToMain(self):
-		self.manager.transition.direction = 'right'
-		self.manager.current = "main_screen"
+	pass
 
 class Other(Screen):
-	def goToMain(self):
-		self.manager.transition.direction = 'right'
-		self.manager.current = "main_screen"
+	pass
 
 class RootWidget(ScreenManager):
 	pass

@@ -51,6 +51,7 @@
     <Content Include="kivy\series.kv" />
     <Content Include="kivy\other.kv" />
     <Content Include="kivy\login.kv" />
+    <Content Include="users.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="kivy\" />

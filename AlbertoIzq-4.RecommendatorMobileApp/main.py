@@ -2,6 +2,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+import json
+from datetime import datetime
+
 Builder.load_file('design.kv')
 Builder.load_file('kivy/login.kv')
 Builder.load_file('kivy/sign_up.kv')
@@ -17,8 +20,14 @@ Builder.load_file('kivy/places.kv')
 Builder.load_file('kivy/other.kv')
 
 class LoginScreen(Screen):
-	def login(self):
-		self.manager.current = "main_screen"
+	def login(self, uname, pword):
+		with open("users.json") as file:
+			users = json.load(file)
+		if uname in users and users[uname]['password'] == pword:
+			self.manager.transition.direction = 'left'
+			self.manager.current = "main_screen"
+		else:
+			self.ids.login_wrong.text = "Wrong username or password!"
 
 	def signUp(self):
 		self.manager.transition.direction = 'right'
@@ -29,11 +38,22 @@ class LoginScreen(Screen):
 		self.manager.current = "forget_pass_screen"
 
 class SignUpScreen(Screen):
-	def add_user(self, name, password):
-		print(name, password)
+	def add_user(self, uname, pword):
+		with open("users.json") as file:
+			users = json.load(file)
+
+		users[uname] = {'username' : uname, 'password' : pword,
+						'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+
+		# Overwrite previous file
+		with open("users.json", 'w') as file:
+			json.dump(users, file)
+
+		self.manager.current = "sign_up_screen_success"
 
 class SignUpScreenSuccess(Screen):
 	def goToLogin(self):
+		self.manager.transition.direction = 'left'
 		self.manager.current = "login_screen"
 
 class ForgetPassScreen(Screen):
@@ -41,10 +61,14 @@ class ForgetPassScreen(Screen):
 
 class ForgetPassScreenSuccess(Screen):
 	def goToLogin(self):
+		self.manager.transition.direction = 'left'
 		self.manager.current = "login_screen"
 
 
 class Main(Screen):
+	def logOut(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "login_screen"
 	pass
 
 class Music(Screen):
@@ -76,7 +100,6 @@ class Other(Screen):
 	def goToMain(self):
 		self.manager.transition.direction = 'right'
 		self.manager.current = "main_screen"
-
 
 class RootWidget(ScreenManager):
 	pass

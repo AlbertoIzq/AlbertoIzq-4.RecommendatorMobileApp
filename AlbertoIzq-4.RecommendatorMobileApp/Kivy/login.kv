@@ -11,14 +11,16 @@
 			TextInput:
 				hint_text: "Password"
 				password: True
-			RelativeLayout:
-				Button:
-					text: "Login"
+			Button:
+				text: "Login"
+				on_press: root.login()
 			Label:
 				text: ""
 		GridLayout:
 			cols: 2
 			Button:
 				text: "Forgot Password"
+				on_press: root.forgetPass()
 			Button:
 				text: "Sign Up"
+				on_press: root.signUp()

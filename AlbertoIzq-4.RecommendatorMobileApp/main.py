@@ -17,41 +17,65 @@ Builder.load_file('kivy/places.kv')
 Builder.load_file('kivy/other.kv')
 
 class LoginScreen(Screen):
-	pass
+	def login(self):
+		self.manager.current = "main_screen"
+
+	def signUp(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "sign_up_screen"
+
+	def forgetPass(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "forget_pass_screen"
 
 class SignUpScreen(Screen):
-	pass
+	def add_user(self, name, password):
+		print(name, password)
 
 class SignUpScreenSuccess(Screen):
-	pass
+	def goToLogin(self):
+		self.manager.current = "login_screen"
 
 class ForgetPassScreen(Screen):
 	pass
 
 class ForgetPassScreenSuccess(Screen):
-	pass
+	def goToLogin(self):
+		self.manager.current = "login_screen"
 
 
 class Main(Screen):
 	pass
 
 class Music(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 class Movies(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 class Series(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 class Books(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 class Places(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 class Other(Screen):
-	pass
+	def goToMain(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "main_screen"
 
 
 class RootWidget(ScreenManager):

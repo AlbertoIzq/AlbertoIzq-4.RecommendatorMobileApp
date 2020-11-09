@@ -25,6 +25,7 @@ class LoginScreen(Screen):
 			users = json.load(file)
 		if uname in users and users[uname]['password'] == pword:
 			self.setMessage()
+			self.resetInputs()
 			self.manager.transition.direction = 'left'
 			self.manager.current = "main_screen"
 		else:
@@ -32,16 +33,22 @@ class LoginScreen(Screen):
 
 	def signUp(self):
 		self.setMessage()
+		self.resetInputs()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "sign_up_screen"
 
 	def forgetPass(self):
 		self.setMessage()
+		self.resetInputs()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "forget_pass_screen"
 
 	def setMessage(self, text = ""):
 		self.ids.login_wrong.text = text
+
+	def resetInputs(self):
+		self.ids.username.text = ""
+		self.ids.password.text = ""
 
 class SignUpScreen(Screen):
 	def add_user(self, uname, pword):
@@ -66,12 +73,17 @@ class SignUpScreen(Screen):
 				json.dump(users, file)
 
 			self.setMessage()
+			self.resetInputs()
 			self.manager.current = "sign_up_screen_success"
 		else:
-			self.setMessage("Invalid Password")
+			self.setMessage("Invalid Password!")
 
 	def setMessage(self, text = ""):
 		self.ids.sign_up_wrong.text = text
+
+	def resetInputs(self):
+		self.ids.username.text = ""
+		self.ids.password.text = ""
 
 class SignUpScreenSuccess(Screen):
 	def goToLogin(self):

@@ -24,32 +24,54 @@ class LoginScreen(Screen):
 		with open("users.json") as file:
 			users = json.load(file)
 		if uname in users and users[uname]['password'] == pword:
+			self.setMessage()
 			self.manager.transition.direction = 'left'
 			self.manager.current = "main_screen"
 		else:
-			self.ids.login_wrong.text = "Wrong username or password!"
+			self.setMessage("Wrong username or password!")
 
 	def signUp(self):
+		self.setMessage()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "sign_up_screen"
 
 	def forgetPass(self):
+		self.setMessage()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "forget_pass_screen"
 
+	def setMessage(self, text = ""):
+		self.ids.login_wrong.text = text
+
 class SignUpScreen(Screen):
 	def add_user(self, uname, pword):
-		with open("users.json") as file:
-			users = json.load(file)
+		has_capital_letter = False
+		has_number = False
+		len_ok = len(pword) >= 8
+		for letter in pword:
+			if letter.isupper():
+				has_capital_letter = True
+			if letter.isdigit():
+				has_number = True
 
-		users[uname] = {'username' : uname, 'password' : pword,
-						'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+		if len_ok and has_capital_letter and has_number:
+			with open("users.json") as file:
+				users = json.load(file)
 
-		# Overwrite previous file
-		with open("users.json", 'w') as file:
-			json.dump(users, file)
+			users[uname] = {'username' : uname, 'password' : pword,
+							'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
 
-		self.manager.current = "sign_up_screen_success"
+			# Overwrite previous file
+			with open("users.json", 'w') as file:
+				json.dump(users, file)
+
+			self.setMessage()
+			self.manager.current = "sign_up_screen_success"
+		else:
+			self.setMessage("Invalid Password")
+
+	def setMessage(self, text = ""):
+		self.ids.sign_up_wrong.text = text
 
 class SignUpScreenSuccess(Screen):
 	def goToLogin(self):

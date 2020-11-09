@@ -44,7 +44,6 @@
     <Content Include="kivy\sign_up.kv" />
     <Content Include="kivy\sign_up_success.kv" />
     <Content Include="kivy\forget_pass.kv" />
-    <Content Include="kivy\forget_pass_success.kv" />
     <Content Include="kivy\main.kv" />
     <Content Include="kivy\music.kv" />
     <Content Include="kivy\movies.kv" />

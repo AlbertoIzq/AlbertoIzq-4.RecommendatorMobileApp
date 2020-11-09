@@ -1,1 +1,18 @@
 <ForgetPassScreen>:
+	GridLayout:
+		cols: 1
+		TextInput:
+			id: username
+			hint_text: "Username"
+		TextInput:
+			id: fav_word
+			hint_text: "Favourite word"
+		Button:
+			text: "What is my Password?"
+			on_press: root.getPassword(root.ids.username.text, root.ids.fav_word.text)
+		Label:
+			id: retrieved_password 
+			text: ""
+		Button:
+			text: "Login page"
+			on_press: root.goToLogin()

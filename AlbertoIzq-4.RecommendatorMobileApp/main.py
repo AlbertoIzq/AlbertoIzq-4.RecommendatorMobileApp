@@ -10,7 +10,6 @@ Builder.load_file('kivy/login.kv')
 Builder.load_file('kivy/sign_up.kv')
 Builder.load_file('kivy/sign_up_success.kv')
 Builder.load_file('kivy/forget_pass.kv')
-Builder.load_file('kivy/forget_pass_success.kv')
 Builder.load_file('kivy/main.kv')
 Builder.load_file('kivy/music.kv')
 Builder.load_file('kivy/movies.kv')
@@ -51,7 +50,7 @@ class LoginScreen(Screen):
 		self.ids.password.text = ""
 
 class SignUpScreen(Screen):
-	def add_user(self, uname, pword):
+	def add_user(self, uname, pword, fword):
 		has_capital_letter = False
 		has_number = False
 		len_ok = len(pword) >= 8
@@ -66,7 +65,8 @@ class SignUpScreen(Screen):
 				users = json.load(file)
 
 			users[uname] = {'username' : uname, 'password' : pword,
-							'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+							'created' : datetime.now().strftime("%Y-%m-%d %H-%M-%S"),
+							'favourite_word' : fword}
 
 			# Overwrite previous file
 			with open("users.json", 'w') as file:
@@ -91,13 +91,28 @@ class SignUpScreenSuccess(Screen):
 		self.manager.current = "login_screen"
 
 class ForgetPassScreen(Screen):
-	pass
+	def getPassword(self, uname, fword):
+		with open("users.json") as file:
+			users = json.load(file)
+		
+		if uname in users and users[uname]['favourite_word'] == fword:
+			password = users[uname]['password']
+			self.setMessage(password)
+		else:
+			self.setMessage("Wrong username or favourite word!")
 
-class ForgetPassScreenSuccess(Screen):
 	def goToLogin(self):
+		self.setMessage()
+		self.resetInputs()
 		self.manager.transition.direction = 'left'
 		self.manager.current = "login_screen"
 
+	def setMessage(self, text = ""):
+		self.ids.retrieved_password.text = text
+
+	def resetInputs(self):
+		self.ids.username.text = ""
+		self.ids.fav_word.text = ""
 
 class Main(Screen):
 	def logOut(self):

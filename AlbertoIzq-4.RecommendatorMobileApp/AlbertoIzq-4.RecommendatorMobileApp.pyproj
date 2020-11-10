@@ -50,10 +50,12 @@
     <Content Include="kivy\series.kv" />
     <Content Include="kivy\other.kv" />
     <Content Include="kivy\login.kv" />
+    <Content Include="recommendations\series.txt" />
     <Content Include="users.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="kivy\" />
+    <Folder Include="recommendations\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

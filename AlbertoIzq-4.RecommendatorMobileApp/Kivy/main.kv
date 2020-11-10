@@ -10,24 +10,23 @@
 			cols: 2
 			Button:
 				text: "Music"
-				on_press: root.goToMusic()
+				on_press: root.goToScreen("music")
 			Button:
 				text: "Places"
-				on_press: root.goToPlaces()
+				on_press: root.goToScreen("places")
 		GridLayout:
 			cols: 2
 			Button:
 				text: "Movies"
-				on_press: root.goToMovies()
+				on_press: root.goToScreen("movies")
 			Button:
 				text: "Series"
-				on_press: root.goToSeries()
+				on_press: root.goToScreen("series")
 		GridLayout:
 			cols: 2
 			Button:
 				text: "Books"
-				on_press: root.goToBooks()
+				on_press: root.goToScreen("books")
 			Button:
 				text: "Other"
-				on_press: root.goToOther()
-			
+				on_press: root.goToScreen("other")

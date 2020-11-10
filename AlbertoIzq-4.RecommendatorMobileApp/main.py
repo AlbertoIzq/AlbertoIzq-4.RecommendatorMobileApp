@@ -123,35 +123,16 @@ class ForgetPassScreen(Screen):
 		self.ids.username.text = ""
 		self.ids.fav_word.text = ""
 
+
 class Main(Screen):
 	def logOut(self):
 		self.manager.transition.direction = 'right'
 		self.manager.current = "login_screen"
 
-	def goToMusic(self):
+	def goToScreen(self, screen_name):
 		self.manager.transition.direction = 'left'
-		self.manager.current = "music_screen"
-
-	def goToMovies(self):
-		self.manager.transition.direction = 'left'
-		self.manager.current = "movies_screen"
-
-	def goToSeries(self):
-		self.manager.transition.direction = 'left'
-		self.manager.current = "series_screen"
-
-	def goToBooks(self):
-		self.manager.transition.direction = 'left'
-		self.manager.current = "books_screen"
-
-	def goToPlaces(self):
-		self.manager.transition.direction = 'left'
-		self.manager.current = "places_screen"
-
-	def goToOther(self):
-		self.manager.transition.direction = 'left'
-		self.manager.current = "other_screen"
-
+		self.manager.current = screen_name + "_screen"
+		
 class RecomScreen:
 	def goToMain(self):
 		self.manager.transition.direction = 'right'

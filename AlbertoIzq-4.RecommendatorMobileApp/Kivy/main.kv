@@ -1,6 +1,33 @@
 <Main>:
 	GridLayout:
 		cols: 1
-		Button:
-			text: "Logout"
-			on_press: root.logOut()
+		GridLayout:
+			cols:1
+			Button:
+				text: "Logout"
+				on_press: root.logOut()
+		GridLayout:
+			cols: 2
+			Button:
+				text: "Music"
+				on_press: root.goToMusic()
+			Button:
+				text: "Places"
+				on_press: root.goToPlaces()
+		GridLayout:
+			cols: 2
+			Button:
+				text: "Movies"
+				on_press: root.goToMovies()
+			Button:
+				text: "Series"
+				on_press: root.goToSeries()
+		GridLayout:
+			cols: 2
+			Button:
+				text: "Books"
+				on_press: root.goToBooks()
+			Button:
+				text: "Other"
+				on_press: root.goToOther()
+			

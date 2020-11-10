@@ -80,6 +80,12 @@ class SignUpScreen(Screen):
 		else:
 			self.setMessage("Invalid Password!")
 
+	def goToLogin(self):
+		self.setMessage()
+		self.resetInputs()
+		self.manager.transition.direction = 'left'
+		self.manager.current = "login_screen"
+
 	def setMessage(self, text = ""):
 		self.ids.sign_up_wrong.text = text
 
@@ -121,27 +127,58 @@ class Main(Screen):
 	def logOut(self):
 		self.manager.transition.direction = 'right'
 		self.manager.current = "login_screen"
-	pass
 
-class Music(Screen):
+	def goToMusic(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "music_screen"
+
+	def goToMovies(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "movies_screen"
+
+	def goToSeries(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "series_screen"
+
+	def goToBooks(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "books_screen"
+
+	def goToPlaces(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "places_screen"
+
+	def goToOther(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "other_screen"
+
+class RecomScreen:
 	def goToMain(self):
 		self.manager.transition.direction = 'right'
 		self.manager.current = "main_screen"
 
-class Movies(Screen):
+	def logOut(self):
+		self.manager.transition.direction = 'right'
+		self.manager.current = "login_screen"
+
+class Music(Screen, RecomScreen):
 	pass
 
-class Series(Screen):
+class Movies(Screen, RecomScreen):
 	pass
 
-class Books(Screen):
+class Series(Screen, RecomScreen):
 	pass
 
-class Places(Screen):
+class Books(Screen, RecomScreen):
 	pass
 
-class Other(Screen):
+class Places(Screen, RecomScreen):
 	pass
+
+class Other(Screen, RecomScreen):
+	pass
+
 
 class RootWidget(ScreenManager):
 	pass

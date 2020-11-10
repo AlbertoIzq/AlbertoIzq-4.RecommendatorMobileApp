@@ -1,21 +1,28 @@
 <SignUpScreen>:
 	GridLayout:
 		cols: 1
-		Label:
-			text: "Sign up for an amazing recommendations app!"
-		TextInput:
-			id: username
-			hint_text: "Username"
-		TextInput:
-			id: password
-			hint_text: "Password (8 char, 1 capital letter and 1 number min)"
-			password: True
-		TextInput:
-			id: fav_word
-			hint_text: "Favourite word (used as password hint)"
-		Button:
-			text: "Submit"
-			on_press: root.add_user(root.ids.username.text, root.ids.password.text, root.ids.fav_word.text)
-		Label:
-			id: sign_up_wrong
-			text: ""
+		GridLayout:
+			cols: 1
+			Label:
+				text: "Sign up for an amazing recommendations app!"
+			TextInput:
+				id: username
+				hint_text: "Username"
+			TextInput:
+				id: password
+				hint_text: "Password (8 char, 1 capital letter and 1 number min)"
+				password: True
+			TextInput:
+				id: fav_word
+				hint_text: "Favourite word (used as password hint)"
+			Label:
+				id: sign_up_wrong
+				text: ""
+		GridLayout:
+			cols: 2
+			Button:
+				text: "Submit"
+				on_press: root.add_user(root.ids.username.text, root.ids.password.text, root.ids.fav_word.text)
+			Button:
+				text: "Login page"
+				on_press: root.goToLogin()

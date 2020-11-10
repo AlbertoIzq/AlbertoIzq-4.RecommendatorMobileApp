@@ -1,1 +1,17 @@
 <Series>:
+	GridLayout:
+		cols: 1
+		GridLayout:
+			cols:2
+			Button:
+				text: "Main page"
+				on_press: root.goToMain()
+			Button:
+				text: "Logout"
+				on_press: root.logOut()
+		GridLayout:
+			cols: 1
+			Label:
+				text: "Series"
+			TextInput:
+				text: ""

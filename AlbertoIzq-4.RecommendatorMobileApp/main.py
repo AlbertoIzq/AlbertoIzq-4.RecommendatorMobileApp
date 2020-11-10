@@ -138,12 +138,19 @@ class Main(Screen):
 		
 class RecomScreen:
 	def goToMain(self):
+		self.saveContent()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "main_screen"
 
 	def logOut(self):
+		self.saveContent()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "login_screen"
+
+	def saveContent(self):
+		file_name = str(self.manager.current).replace("_screen", "")
+		with open("recommendations/" +  file_name + ".txt", 'w') as my_file:
+			my_file.write(self.parent.get_screen(file_name + "_screen").ids.content.text)
 
 class Music(Screen, RecomScreen):
 	pass

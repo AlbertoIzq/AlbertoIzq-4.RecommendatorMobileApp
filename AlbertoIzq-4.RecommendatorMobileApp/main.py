@@ -133,6 +133,9 @@ class Main(Screen):
 		self.manager.transition.direction = 'left'
 		self.manager.current = screen_name + "_screen"
 		
+		with open("recommendations/" + screen_name + ".txt") as my_file:
+			self.parent.get_screen(screen_name + "_screen").ids.content.text = my_file.read()
+		
 class RecomScreen:
 	def goToMain(self):
 		self.manager.transition.direction = 'right'

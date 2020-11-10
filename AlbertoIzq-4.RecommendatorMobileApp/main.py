@@ -24,7 +24,7 @@ class LoginScreen(Screen):
 			users = json.load(file)
 		if uname in users and users[uname]['password'] == pword:
 			self.setMessage()
-			self.resetInputs()
+			self.resetPassword()
 			self.manager.transition.direction = 'left'
 			self.manager.current = "main_screen"
 		else:
@@ -45,18 +45,22 @@ class LoginScreen(Screen):
 	def setMessage(self, text = ""):
 		self.ids.login_wrong.text = text
 
+	def resetPassword(self):
+		self.ids.password.text = ""
+
 	def resetInputs(self):
 		self.ids.username.text = ""
 		self.ids.password.text = ""
 
 class SignUpScreen(Screen):
-	def createEmptyJsonRecom(self, uname, file_name):
+	def createEmptyJsonRecom(self, file_name):
+		uname =self.ids.username.text
 		with open("recommendations/" + file_name + ".json") as my_file:
-			content = json.load(my_file)
-			content[uname] = {'username': uname, 'content' : ''}
+			content_file = json.load(my_file)
+			content_file[uname] = {'username': uname, 'content' : ''}
 
 		with open("recommendations/" + file_name + ".json", 'w') as my_file:
-			json.dump(content, my_file)
+			json.dump(content_file, my_file)
 
 	def add_user(self, uname, pword, fword):
 		has_capital_letter = False
@@ -80,12 +84,12 @@ class SignUpScreen(Screen):
 			with open("users.json", 'w') as my_file:
 				json.dump(users, my_file)
 
-			self.createEmptyJsonRecom(uname, 'music')
-			self.createEmptyJsonRecom(uname, 'movies')
-			self.createEmptyJsonRecom(uname, 'series')
-			self.createEmptyJsonRecom(uname, 'books')
-			self.createEmptyJsonRecom(uname, 'places')
-			self.createEmptyJsonRecom(uname, 'other')
+			self.createEmptyJsonRecom('music')
+			self.createEmptyJsonRecom('movies')
+			self.createEmptyJsonRecom('series')
+			self.createEmptyJsonRecom('books')
+			self.createEmptyJsonRecom('places')
+			self.createEmptyJsonRecom('other')
 
 			self.setMessage()
 			self.resetInputs()
@@ -147,9 +151,12 @@ class Main(Screen):
 	def goToScreen(self, screen_name):
 		self.manager.transition.direction = 'left'
 		self.manager.current = screen_name + "_screen"
-		
-		with open("recommendations/" + screen_name + ".txt") as my_file:
-			self.parent.get_screen(screen_name + "_screen").ids.content.text = my_file.read()
+
+		with open("recommendations/" + screen_name + ".json") as my_file:
+			content_file = json.load(my_file)
+			uname = self.parent.get_screen("login_screen").ids.username.text
+			content = content_file[uname]['content']
+			self.parent.get_screen(screen_name + "_screen").ids.content.text = content
 		
 class RecomScreen:
 	def goToMain(self):
@@ -164,8 +171,14 @@ class RecomScreen:
 
 	def saveContent(self):
 		file_name = str(self.manager.current).replace("_screen", "")
-		with open("recommendations/" +  file_name + ".txt", 'w') as my_file:
-			my_file.write(self.parent.get_screen(file_name + "_screen").ids.content.text)
+		uname = self.parent.get_screen("login_screen").ids.username.text
+		with open("recommendations/" + file_name + ".json") as my_file:
+			content_file = json.load(my_file)
+			content = self.parent.get_screen(file_name + "_screen").ids.content.text
+			content_file[uname] = {'username': uname, 'content' : content}
+
+		with open("recommendations/" + file_name + ".json", 'w') as my_file:
+			json.dump(content_file, my_file)
 
 class Music(Screen, RecomScreen):
 	pass

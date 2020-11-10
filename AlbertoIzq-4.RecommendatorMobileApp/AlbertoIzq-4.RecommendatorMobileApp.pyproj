@@ -56,7 +56,6 @@
     <Content Include="recommendations\other.json" />
     <Content Include="recommendations\places.json" />
     <Content Include="recommendations\series.json" />
-    <Content Include="recommendations\series.txt" />
     <Content Include="users.json" />
   </ItemGroup>
   <ItemGroup>

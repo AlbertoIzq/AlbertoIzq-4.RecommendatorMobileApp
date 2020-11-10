@@ -50,6 +50,12 @@
     <Content Include="kivy\series.kv" />
     <Content Include="kivy\other.kv" />
     <Content Include="kivy\login.kv" />
+    <Content Include="recommendations\books.json" />
+    <Content Include="recommendations\movies.json" />
+    <Content Include="recommendations\music.json" />
+    <Content Include="recommendations\other.json" />
+    <Content Include="recommendations\places.json" />
+    <Content Include="recommendations\series.json" />
     <Content Include="recommendations\series.txt" />
     <Content Include="users.json" />
   </ItemGroup>

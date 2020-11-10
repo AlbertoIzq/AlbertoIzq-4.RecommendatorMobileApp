@@ -50,6 +50,14 @@ class LoginScreen(Screen):
 		self.ids.password.text = ""
 
 class SignUpScreen(Screen):
+	def createEmptyJsonRecom(self, uname, file_name):
+		with open("recommendations/" + file_name + ".json") as my_file:
+			content = json.load(my_file)
+			content[uname] = {'username': uname, 'content' : ''}
+
+		with open("recommendations/" + file_name + ".json", 'w') as my_file:
+			json.dump(content, my_file)
+
 	def add_user(self, uname, pword, fword):
 		has_capital_letter = False
 		has_number = False
@@ -60,8 +68,8 @@ class SignUpScreen(Screen):
 			if letter.isdigit():
 				has_number = True
 
-		with open("users.json") as file:
-			users = json.load(file)
+		with open("users.json") as my_file:
+			users = json.load(my_file)
 
 		if len_ok and has_capital_letter and has_number and not (uname in users):
 			users[uname] = {'username' : uname, 'password' : pword,
@@ -69,8 +77,15 @@ class SignUpScreen(Screen):
 							'favourite_word' : fword}
 
 			# Overwrite previous file
-			with open("users.json", 'w') as file:
-				json.dump(users, file)
+			with open("users.json", 'w') as my_file:
+				json.dump(users, my_file)
+
+			self.createEmptyJsonRecom(uname, 'music')
+			self.createEmptyJsonRecom(uname, 'movies')
+			self.createEmptyJsonRecom(uname, 'series')
+			self.createEmptyJsonRecom(uname, 'books')
+			self.createEmptyJsonRecom(uname, 'places')
+			self.createEmptyJsonRecom(uname, 'other')
 
 			self.setMessage()
 			self.resetInputs()

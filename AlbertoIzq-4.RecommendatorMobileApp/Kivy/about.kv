@@ -3,14 +3,32 @@
 		cols: 1
 		GridLayout:
 			cols: 1
-			Label:
-				text: "About"
+			padding: 15, 15
+			RelativeLayout:
+				Label:
+					text: "About"
+					font_size: '25sp'
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.4}
+		GridLayout:
+			cols: 1
+			size_hint: 0.6, 0.6
+			padding: 15, 15
+			spacing: 10, 10
 			Label:
 				text: "Author: Alberto Izquierdo"
+				font_size: '20sp'
 			Label:
 				text: "Release: 12/11/2020 v1.0"
+				font_size: '20sp'
 			Label:
-				text: "Copyright-All lefts reserved "
-			Button:
-				text: "Login"
-				on_press: root.goToLogin()
+				text: "Copyright-All lefts reserved"
+				font_size: '20sp'    
+		GridLayout:
+			cols: 1
+			padding: 15, 15
+			RelativeLayout:
+				Button:
+					text: "Login page"
+					on_press: root.goToLogin()
+					size_hint: 0.3, 0.2 ## changes the size by this factor
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}

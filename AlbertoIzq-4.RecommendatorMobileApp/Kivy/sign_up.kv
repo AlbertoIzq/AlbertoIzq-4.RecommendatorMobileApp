@@ -11,13 +11,16 @@
 			TextInput:
 				id: username
 				hint_text: "Username"
+				size_hint: 0.5, 0.5
 			TextInput:
 				id: password
 				hint_text: "Password (8 char, 1 capital letter and 1 number min)"
 				password: True
+				size_hint: 0.5, 0.5
 			TextInput:
 				id: fav_word
 				hint_text: "Favourite word (used as password hint)"
+				size_hint: 0.5, 0.5
 			Label:
 				id: sign_up_wrong
 				text: ""
@@ -30,11 +33,11 @@
 				Button:
 					text: "Submit"
 					on_press: root.add_user(root.ids.username.text, root.ids.password.text, root.ids.fav_word.text)
-					size_hint: 0.6, 0.7 ## changes the size by this factor
+					size_hint: 0.7, 0.7
 					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
 			RelativeLayout:
 				Button:
 					text: "Login page"
 					on_press: root.goToLogin()
-					size_hint: 0.6, 0.7 ## changes the size by this factor
+					size_hint: 0.7, 0.7
 					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}

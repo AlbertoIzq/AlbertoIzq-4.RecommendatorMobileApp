@@ -3,22 +3,36 @@
 		cols: 1
 		GridLayout:
 			cols: 1
+			padding: 15, 15
+			spacing: 20, 20
 			Label:
 				text: "Retrieve password"
+				font_size: '25sp'
 			TextInput:
 				id: username
 				hint_text: "Username"
+				size_hint: 0.45, 0.45
 			TextInput:
 				id: fav_word
 				hint_text: "Favourite word"
+				size_hint: 0.45, 0.45
 			Label:
 				id: retrieved_password 
 				text: ""
 		GridLayout:
 			cols: 2
-			Button:
-				text: "What is my password?"
-				on_press: root.getPassword(root.ids.username.text, root.ids.fav_word.text)
-			Button:
-				text: "Login page"
-				on_press: root.goToLogin()
+			size_hint: 0.2, 0.2
+			padding: 10, 10
+			spacing: 10, 0
+			RelativeLayout:
+				Button:
+					text: "Get password"
+					on_press: root.getPassword(root.ids.username.text, root.ids.fav_word.text)
+					size_hint: 0.7, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
+			RelativeLayout:
+				Button:
+					text: "Login page"
+					on_press: root.goToLogin()
+					size_hint: 0.7, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}

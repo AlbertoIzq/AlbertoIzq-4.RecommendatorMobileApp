@@ -3,11 +3,19 @@
 		cols: 1
 		GridLayout:
 			cols: 1
-			Button:
-				text: "About"
-				on_press: root.goToAbout()
+			padding: 15, 15 ## horizontally, vertically
+			spacing: 20, 20 ## between the widgets
+			RelativeLayout:
+				Button:
+					text: "About"
+					on_press: root.goToAbout()
+					background_color: 1, 1, 1, 0 ## rgb and opacity
+					opacity: 1 if self.state == 'normal' else 0.5
+					color: 0.1, 0.7, 1, 1
+					pos_hint: {'center_x' : 0.9, 'center_y' : 0.8}
 			Label:
 				text: "User login"
+				font_size: '25sp' ## space-independent pixels
 			TextInput:
 				id: username
 				hint_text: "Username"
@@ -15,17 +23,29 @@
 				id: password
 				hint_text: "Password"
 				password: True
-			Button:
-				text: "Login"
-				on_press: root.login(root.ids.username.text, root.ids.password.text)
+			RelativeLayout:
+				Button:
+					text: "Login"
+					on_press: root.login(root.ids.username.text, root.ids.password.text)
+					size_hint: 0.3, 0.7 ## changes the size by this factor
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
 			Label:
 				id: login_wrong
 				text: ""
 		GridLayout:
 			cols: 2
+			size_hint: 0.2, 0.2
+			padding: 10, 10
+			spacing: 10, 0
 			Button:
 				text: "Forgotten password?"
 				on_press: root.forgetPass()
+				background_color: 1, 1, 1, 0 ## rgb and opacity
+				opacity: 1 if self.state == 'normal' else 0.5
+				color: 0.1, 0.7, 1, 1
 			Button:
 				text: "Sign up"
 				on_press: root.signUp()
+				background_color: 1, 1, 1, 0 ## rgb and opacity
+				opacity: 1 if self.state == 'normal' else 0.5
+				color: 0.1, 0.7, 1, 1

@@ -1,10 +1,19 @@
+# Main kivy imports
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+# Json file
 import json
 from datetime import datetime
 
+# Hover button
+from kivy.animation import Animation
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
+
+# Load kivy files
 Builder.load_file('design.kv')
 Builder.load_file('kivy/login.kv')
 Builder.load_file('kivy/sign_up.kv')
@@ -207,6 +216,11 @@ class PlacesScreen(Screen, RecomScreen):
 	pass
 
 class OtherScreen(Screen, RecomScreen):
+	pass
+
+
+class ImageButton(ButtonBehavior , HoverBehavior, Image):
+	"""Class used for logout hoverable button"""
 	pass
 
 

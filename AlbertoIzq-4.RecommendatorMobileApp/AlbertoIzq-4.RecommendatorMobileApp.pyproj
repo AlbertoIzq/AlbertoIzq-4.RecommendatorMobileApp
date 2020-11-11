@@ -22,23 +22,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="hoverable.py" />
     <Compile Include="main.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Interpreter Include="virtual\">
-      <Id>virtual</Id>
-      <Version>3.7</Version>
-      <Description>virtual (Python 3.7 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
   </ItemGroup>
   <ItemGroup>
     <Content Include="design.kv">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="hover_button\logout_hover.png" />
+    <Content Include="hover_button\logout_nothover.png" />
     <Content Include="kivy\books.kv" />
     <Content Include="kivy\about.kv" />
     <Content Include="kivy\places.kv" />
@@ -60,8 +52,20 @@
     <Content Include="users.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="hover_button\" />
     <Folder Include="kivy\" />
     <Folder Include="recommendations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="virtual\">
+      <Id>virtual</Id>
+      <Version>3.7</Version>
+      <Description>virtual (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

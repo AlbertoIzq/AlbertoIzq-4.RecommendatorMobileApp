@@ -3,9 +3,12 @@
 		cols: 1
 		GridLayout:
 			cols:1
-			Button:
-				text: "Logout"
-				on_press: root.logOut()
+			RelativeLayout:
+				ImageButton:
+					on_press: root.logOut()
+					source: 'hover_button/logout_hover.png' if self.hovered else 'hover_button/logout_nothover.png'
+					##size_hint: 0.35, 0.35
+					##pos_hint: {'center_x' : 0.93, 'center_y': 0.8}
 		GridLayout:
 			cols: 2
 			Button:

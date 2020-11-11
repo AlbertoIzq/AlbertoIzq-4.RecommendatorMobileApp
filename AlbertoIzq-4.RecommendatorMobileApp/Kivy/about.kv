@@ -11,9 +11,11 @@
 					pos_hint: {'center_x' : 0.5, 'center_y' : 0.4}
 		GridLayout:
 			cols: 1
-			size_hint: 0.6, 0.6
+			size_hint: 0.7, 0.7
 			padding: 15, 15
-			spacing: 10, 10
+			Label:
+				text: "Recommendator App"
+				font_size: '20sp'
 			Label:
 				text: "Author: Alberto Izquierdo"
 				font_size: '20sp'
@@ -30,5 +32,5 @@
 				Button:
 					text: "Login page"
 					on_press: root.goToLogin()
-					size_hint: 0.3, 0.2 ## changes the size by this factor
+					size_hint: 0.3, 0.25 ## changes the size by this factor
 					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}

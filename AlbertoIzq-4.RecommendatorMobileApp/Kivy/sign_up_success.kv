@@ -1,8 +1,15 @@
 <SignUpScreenSuccess>:
 	GridLayout:
 		cols: 1
-		Label:
-			text: "Sign up successful!"
-		Button:
-			text: "Login page"
-			on_press: root.goToLogin()
+		padding: 15, 15
+		spacing: 20, 20
+		RelativeLayout:
+			Label:
+				text: "Sign up successful!"
+				font_size: '25sp'
+		RelativeLayout:
+			Button:
+				text: "Login page"
+				on_press: root.goToLogin()
+				size_hint: 0.3, 0.20 ## changes the size by this factor
+				pos_hint: {'center_x' : 0.5, 'center_y' : 0.4}

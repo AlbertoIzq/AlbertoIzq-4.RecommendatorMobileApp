@@ -40,6 +40,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="kivy\books.kv" />
+    <Content Include="kivy\about.kv" />
     <Content Include="kivy\places.kv" />
     <Content Include="kivy\sign_up.kv" />
     <Content Include="kivy\sign_up_success.kv" />

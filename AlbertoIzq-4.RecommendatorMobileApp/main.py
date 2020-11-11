@@ -10,6 +10,7 @@ Builder.load_file('kivy/login.kv')
 Builder.load_file('kivy/sign_up.kv')
 Builder.load_file('kivy/sign_up_success.kv')
 Builder.load_file('kivy/forget_pass.kv')
+Builder.load_file('kivy/about.kv')
 Builder.load_file('kivy/main.kv')
 Builder.load_file('kivy/music.kv')
 Builder.load_file('kivy/movies.kv')
@@ -41,6 +42,12 @@ class LoginScreen(Screen):
 		self.resetInputs()
 		self.manager.transition.direction = 'right'
 		self.manager.current = "forget_pass_screen"
+
+	def goToAbout(self):
+		self.setMessage()
+		self.resetInputs()
+		self.manager.transition.direction = 'right'
+		self.manager.current = "about_screen"
 
 	def setMessage(self, text = ""):
 		self.ids.login_wrong.text = text
@@ -142,6 +149,10 @@ class ForgetPassScreen(Screen):
 		self.ids.username.text = ""
 		self.ids.fav_word.text = ""
 
+class AboutScreen(Screen):
+	def goToLogin(self):
+		self.manager.transition.direction = 'left'
+		self.manager.current = "login_screen"
 
 class Main(Screen):
 	def logOut(self):

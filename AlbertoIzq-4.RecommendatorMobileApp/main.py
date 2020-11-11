@@ -154,7 +154,7 @@ class AboutScreen(Screen):
 		self.manager.transition.direction = 'left'
 		self.manager.current = "login_screen"
 
-class Main(Screen):
+class MainScreen(Screen):
 	def logOut(self):
 		self.manager.transition.direction = 'right'
 		self.manager.current = "login_screen"
@@ -191,22 +191,22 @@ class RecomScreen:
 		with open("recommendations/" + file_name + ".json", 'w') as my_file:
 			json.dump(content_file, my_file)
 
-class Music(Screen, RecomScreen):
+class MusicScreen(Screen, RecomScreen):
 	pass
 
-class Movies(Screen, RecomScreen):
+class MoviesScreen(Screen, RecomScreen):
 	pass
 
-class Series(Screen, RecomScreen):
+class SeriesScreen(Screen, RecomScreen):
 	pass
 
-class Books(Screen, RecomScreen):
+class BooksScreen(Screen, RecomScreen):
 	pass
 
-class Places(Screen, RecomScreen):
+class PlacesScreen(Screen, RecomScreen):
 	pass
 
-class Other(Screen, RecomScreen):
+class OtherScreen(Screen, RecomScreen):
 	pass
 
 

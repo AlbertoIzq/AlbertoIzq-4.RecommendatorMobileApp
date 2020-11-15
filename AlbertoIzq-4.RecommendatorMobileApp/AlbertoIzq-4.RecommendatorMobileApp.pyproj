@@ -26,6 +26,7 @@
     <Compile Include="main.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\myapp-0.1-armeabi-v7a-debug.apk" />
     <Content Include="design.kv">
       <SubType>Code</SubType>
     </Content>
@@ -52,6 +53,7 @@
     <Content Include="users.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="hover_button\" />
     <Folder Include="kivy\" />
     <Folder Include="kivy\recommendations\" />

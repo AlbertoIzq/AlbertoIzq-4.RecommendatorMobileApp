@@ -1,18 +1,32 @@
 <MusicScreen>:
 	GridLayout:
 		cols: 1
+		padding: 15, 15
+		spacing: 10, 10
 		GridLayout:
 			cols:2
-			Button:
-				text: "Main page"
-				on_press: root.goToMain()
-			Button:
-				text: "Logout"
-				on_press: root.logOut()
+			padding: 5, 5
+			spacing: 5, 5
+			size_hint: 0.15, 0.15
+			RelativeLayout:
+				Button:
+					text: "Main page"
+					on_press: root.goToMain()
+					size_hint: 0.7, 0.65
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.6}
+			RelativeLayout:
+				ImageButton:
+					on_press: root.logOut()
+					source: 'hover_button/logout_hover.png' if self.hovered else 'hover_button/logout_nothover.png'
+					size_hint: 0.6, 0.6
+					pos_hint: {'center_x' : 0.5, 'center_y': 0.6}
 		GridLayout:
 			cols: 1
+			padding: 5, 5
 			Label:
 				text: "Music"
+				font_size: '25sp'
+				size_hint: 1, 0.10
 			TextInput:
 				id: content
 				text: ""

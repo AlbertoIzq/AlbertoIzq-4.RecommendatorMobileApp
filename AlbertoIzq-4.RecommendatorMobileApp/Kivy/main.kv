@@ -1,35 +1,61 @@
 <MainScreen>:
 	GridLayout:
 		cols: 1
+		padding: 15, 15
+		spacing: 20, 20
 		GridLayout:
 			cols:1
 			RelativeLayout:
 				ImageButton:
 					on_press: root.logOut()
 					source: 'hover_button/logout_hover.png' if self.hovered else 'hover_button/logout_nothover.png'
-					##size_hint: 0.35, 0.35
-					##pos_hint: {'center_x' : 0.93, 'center_y': 0.8}
+					size_hint: 0.35, 0.35
+					pos_hint: {'center_x' : 0.8, 'center_y': 0.8}
 		GridLayout:
 			cols: 2
-			Button:
-				text: "Music"
-				on_press: root.goToScreen("music")
-			Button:
-				text: "Places"
-				on_press: root.goToScreen("places")
+			padding: 15, 15
+			spacing: 20, 20
+			RelativeLayout:
+				Button:
+					text: "Music"
+					on_press: root.goToScreen("music")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
+			RelativeLayout:
+				Button:
+					text: "Places"
+					on_press: root.goToScreen("places")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
 		GridLayout:
 			cols: 2
-			Button:
-				text: "Movies"
-				on_press: root.goToScreen("movies")
-			Button:
-				text: "Series"
-				on_press: root.goToScreen("series")
+			padding: 15, 15
+			spacing: 20, 20
+			RelativeLayout:
+				Button:
+					text: "Movies"
+					on_press: root.goToScreen("movies")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
+			RelativeLayout:
+				Button:
+					text: "Series"
+					on_press: root.goToScreen("series")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
 		GridLayout:
 			cols: 2
-			Button:
-				text: "Books"
-				on_press: root.goToScreen("books")
-			Button:
-				text: "Other"
-				on_press: root.goToScreen("other")
+			padding: 15, 15
+			spacing: 20, 20
+			RelativeLayout:
+				Button:
+					text: "Books"
+					on_press: root.goToScreen("books")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}
+			RelativeLayout:
+				Button:
+					text: "Other"
+					on_press: root.goToScreen("other")
+					size_hint: 0.8, 0.7
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.5}

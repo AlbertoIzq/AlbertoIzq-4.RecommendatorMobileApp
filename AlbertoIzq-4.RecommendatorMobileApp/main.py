@@ -21,12 +21,12 @@ Builder.load_file('kivy/sign_up_success.kv')
 Builder.load_file('kivy/forget_pass.kv')
 Builder.load_file('kivy/about.kv')
 Builder.load_file('kivy/main.kv')
-Builder.load_file('kivy/music.kv')
-Builder.load_file('kivy/movies.kv')
-Builder.load_file('kivy/series.kv')
-Builder.load_file('kivy/books.kv')
-Builder.load_file('kivy/places.kv')
-Builder.load_file('kivy/other.kv')
+Builder.load_file('kivy/recommendations/music.kv')
+Builder.load_file('kivy/recommendations/movies.kv')
+Builder.load_file('kivy/recommendations/series.kv')
+Builder.load_file('kivy/recommendations/books.kv')
+Builder.load_file('kivy/recommendations/places.kv')
+Builder.load_file('kivy/recommendations/other.kv')
 
 class LoginScreen(Screen):
 	def login(self, uname, pword):

@@ -31,17 +31,17 @@
     </Content>
     <Content Include="hover_button\logout_hover.png" />
     <Content Include="hover_button\logout_nothover.png" />
-    <Content Include="kivy\books.kv" />
+    <Content Include="kivy\recommendations\books.kv" />
     <Content Include="kivy\about.kv" />
-    <Content Include="kivy\places.kv" />
+    <Content Include="kivy\recommendations\places.kv" />
     <Content Include="kivy\sign_up.kv" />
     <Content Include="kivy\sign_up_success.kv" />
     <Content Include="kivy\forget_pass.kv" />
     <Content Include="kivy\main.kv" />
-    <Content Include="kivy\music.kv" />
-    <Content Include="kivy\movies.kv" />
-    <Content Include="kivy\series.kv" />
-    <Content Include="kivy\other.kv" />
+    <Content Include="kivy\recommendations\music.kv" />
+    <Content Include="kivy\recommendations\movies.kv" />
+    <Content Include="kivy\recommendations\series.kv" />
+    <Content Include="kivy\recommendations\other.kv" />
     <Content Include="kivy\login.kv" />
     <Content Include="recommendations\books.json" />
     <Content Include="recommendations\movies.json" />
@@ -54,6 +54,7 @@
   <ItemGroup>
     <Folder Include="hover_button\" />
     <Folder Include="kivy\" />
+    <Folder Include="kivy\recommendations\" />
     <Folder Include="recommendations\" />
   </ItemGroup>
   <ItemGroup>

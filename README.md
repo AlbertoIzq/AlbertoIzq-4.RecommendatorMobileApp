@@ -10,6 +10,8 @@ SCREENS
 -Main: Screen to select list
 -Music, Places, Movies, Series, Books, Other: Each screen contain a text input to write and save info 
 
+Check "Screenshots" folder to see how the app looks
+
 POSSIBLE FUTURE IMPROVEMENTS
 
 -Sign_up screen
